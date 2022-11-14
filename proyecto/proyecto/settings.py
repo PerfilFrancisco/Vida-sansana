@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'vida_sansana',
         'USER': 'root',
         'PASSWORD': '12345',
-        'HOST': '10.4.41.3', 
+        'HOST': '10.4.41.3',  #10.4.41.3 / 192.168.2.102
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
