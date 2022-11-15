@@ -1,10 +1,12 @@
 from django.db import models
 
 # Create your models here.
-class Reporter(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    email = models.EmailField()
-
-    def __str__(self):
-        return "%s %s" % (self.first_name, self.last_name)
+class taller(models.Model):
+    tall_id = models.AutoField(primary_key=True)
+    tall_nombre = models.CharField(max_length=45)
+    tall_nombre = models.CharField(max_length=45)
+    tall_profesor = models.CharField(max_length=45)
+    tall_descripcion = models.CharField(max_length=45)
+    tall_cupo_act = models.IntegerField
+    tall_cupo_max = models.IntegerField
+    
