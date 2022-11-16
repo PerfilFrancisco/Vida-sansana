@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'proyecto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'vida_sansana',
+        'NAME': 'new_schema',
         'USER': 'root',
         'PASSWORD': '12345',
-        'HOST': '192.168.2.102', #10.4.41.3 / 192.168.2.102
+        'HOST': 'localhost', #10.4.41.3 / 192.168.2.102
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
