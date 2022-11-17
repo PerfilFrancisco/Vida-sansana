@@ -26,13 +26,14 @@ class Usuario(models.Model):
     sede_id = models.ForeignKey(Sede,on_delete=models.CASCADE)
     tipo_usu = models.ForeignKey(Tipo_usu,on_delete=models.CASCADE)
 
+
 class Hito(models.Model):
     hito_id = models.AutoField(primary_key=True)
-    hito_actividad = models
-    hito_docencia = models
-    hito_reglamentario = models
-    hito_fecha_inicio = models
-    hito_fecha_fin = models
+    hito_actividad = models.TextField() # PENDIENTE DE REVISAR
+    hito_docencia = models.TextField() # PENDIENTE DE REVISAR
+    hito_reglamentario = models.TextField() # PENDIENTE DE REVISAR
+    hito_fecha_inicio = models.DateField()
+    hito_fecha_fin = models.DateField()
 
 class Hito_sede(models.Model):
     hito_id = models.ForeignKey(Hito,on_delete=models)
@@ -44,7 +45,7 @@ class Publicacion_py(models.Model):
     publ_descripcion = models.CharField(max_length=50)
     publ_ubicacion = models.CharField(max_length=50)
     publ_precio = models.IntegerChoices()
-    publ_creacion = models.CharField(max_length=50)
+    publ_creacion = models.CharField(max_length=50) # se puede hacer con datafield
     publ_stock = models.IntegerField()
     publ_visivilidad = models.BinaryField()
 
@@ -72,7 +73,7 @@ class Dia_taller(models.Model):
 class Usu_publicacion(models.Model):
     usu_rut = models.ForeignKey(Usuario,on_delete=models.CASCADE)
     publ_id = models.ForeignKey(Publicacion_py,on_delete=models.CASCADE)
-    
+
 
 
     
