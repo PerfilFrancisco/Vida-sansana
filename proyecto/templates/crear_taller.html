@@ -71,6 +71,9 @@
   </nav> -->
       
 <!--  contenedor -->
+  <form method="post">
+    {{form}}
+    {% csrf_token %}
     <div class="container my-3 mx-1">
         <div class="row">
             <div class="col-sm-12 col-md-1 col-lg-1 col-xl-1">
@@ -79,19 +82,19 @@
 
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Tenis ">
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Tenis " name="nombre">
               </div>
               <div class="mb-3">
                 <label for="formGroupExampleInput2" class="form-label">Descripcion</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Descripcion ">
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Descripcion " name="descripcion">
               </div>
               <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
                 <label for="formGroupExampleInput3" class="form-label">Profesor</label>
-                <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Susana Oria ">
+                <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Susana Oria " name="profesor">
               </div>
               <div class="col-sm-1 col-md-1 col-lg-1 col-xl-1 mb-3">
                 <label for="formGroupExampleInput4" class="form-label">Cupo</label>
-                <input type="number" class="form-control" id="formGroupExampleInput4">
+                <input type="number" class="form-control" id="formGroupExampleInput4" name="cupo">
               </div>
               <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
                 <label class="text col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-2" for="inputGroupSelect01">Estado</label>
@@ -101,7 +104,6 @@
                   <option value="2">Cerrado</option>
                 </select>
               </div>
-
 
 <!-- horario -->
             <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
@@ -161,8 +163,11 @@
                     </tbody>
                 </table>
             </div>
-            <button type="button " class="btn btn-success">Guardar cambios</button>
+
+              <button type="button " class="btn btn-success">Guardar cambios</button>
+            
         </div>
     </div>
+  </form>
 </body>
 </html>

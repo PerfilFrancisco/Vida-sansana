@@ -19,7 +19,7 @@ from vidaSansana import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('crearT/',views.crearTaller),
+    path('crearT/',views.crearTaller,name='crear_taller'),
     path('',views.inicio),
-    path('publicacion/',views.crearPublicacion),
+    path('publicacion/',views.crearPublicacion,name='crear_publicacion'),
 ]
