@@ -77,19 +77,19 @@ WSGI_APPLICATION = 'proyecto.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'vida_sansana',
-#         'USER': 'root',
-#         'PASSWORD': '12345',
-#         'HOST': '192.168.2.102', 
-#         'PORT': '3306',
-#         'OPTIONS': {
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-#         } 
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'vida_sansana',
+        'USER': 'root',
+        'PASSWORD': 'manzana',
+        'HOST': 'localhost', 
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        } 
+    }
+}
 #10.4.41.3
 
 # Password validation
