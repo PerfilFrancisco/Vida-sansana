@@ -85,9 +85,6 @@ DATABASES = {
         'PASSWORD': 'manzana',
         'HOST': 'localhost', 
         'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        } 
     }
 }
 #10.4.41.3

@@ -20,10 +20,11 @@ from vidaSansana import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('crearT/',views.crearTaller,name='crear_taller'),
-    path('',views.inicio),
+    path('',views.inicio,name='inicio'),
     path('publicacion/',views.crearPublicacion,name='crear_publicacion'),
     path('login/',views.loguear,name='login'),
     path('carrusel/',views.carrusel,name='carrusel'),
     path('inscribir/',views.inscribir,name='inscribir'),
     path('puntuar/',views.puntuar,name='puntuar'),
+    path('previa/',views.previa,name='previa'),
 ]

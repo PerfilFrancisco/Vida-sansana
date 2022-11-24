@@ -78,6 +78,17 @@ class Carrera(models.Model):
         managed = False
         db_table = 'carrera'
 
+class Puntuacion(models.Model):
+    puntuacion = models.IntegerField()
+    id_puntuacion = models.AutoField(primary_key=True)
+    usu_rut = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    publ_id = models.ForeignKey('PublicacionPy', on_delete=models.CASCADE)
+
+class Comentario(models.Model):
+    comentario = models.TextField(blank=True, null=True)
+    comentario_id = models.AutoField(primary_key=True)
+    usu_rut = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    publ_id = models.ForeignKey('PublicacionPy', on_delete=models.CASCADE)
 
 class Dia(models.Model):
     dia_id = models.IntegerField(primary_key=True)

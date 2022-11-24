@@ -1,6 +1,6 @@
 # Register your models here.
 from django.contrib import admin
-from .models import Carrera,Dia,DiaTaller,Hito,HitoSede,PublicacionPy,Sede,TallUsuario,Taller,TipoUsuario,Usuario,UsuarioPubl
+from .models import Carrera,Dia,DiaTaller,Hito,HitoSede,PublicacionPy,Sede,TallUsuario,Taller,TipoUsuario,Usuario,UsuarioPubl,Puntuacion
 
 class CarreraAdmin(admin.ModelAdmin):
       list_display = ['car_id', 'car_nombre']
@@ -26,6 +26,9 @@ class UsuarioAdmin(admin.ModelAdmin):
       list_display = ['usu_rut', 'usu_nombre','usu_apellido','usu_correo','usu_contrasena','sede','tipo_usu','car']
 class UsuarioPublAdmin(admin.ModelAdmin):
       list_display = ['usu_rut', 'publ']
+class PuntuacionAdmin(admin.ModelAdmin):
+      list_display = ['puntuacion','id_puntuacion','usu_rut','publ_id']
+admin.site.register(Puntuacion,PuntuacionAdmin)
 admin.site.register(Carrera,CarreraAdmin)
 admin.site.register(Dia,DiaAdmin)
 admin.site.register(DiaTaller,DiaTallerAdmin)

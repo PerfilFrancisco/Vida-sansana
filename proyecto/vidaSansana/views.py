@@ -22,3 +22,5 @@ def inscribir(request):
     return render(request,'inscribir_taller.html')
 def puntuar(request):
     return render(request,'puntuar.html')
+def previa(request):
+    return render(request,'vista_previa.html')
