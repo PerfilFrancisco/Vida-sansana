@@ -7,15 +7,12 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>titulo</title>
+    <title>Inicio sesion</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
 
-    
-
-    
-
 <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="/static/css/login.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -76,29 +73,39 @@
   </head>
   <body class="text-center">
     
-<main class="form-signin w-100 m-auto">
-  <form>
-    <img class="mb-4" src="https://www.tailorbrands.com/wp-content/uploads/2020/07/amazon-logo.jpg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Inicio sesion</h1>
+    <main class="form-signin w-100 m-auto">
+      <form method="post" action="{% url 'carrusel' %}">
+        <script src="/static/js/login.js"></script>
+        <script src="/static/js/datosUsuario.js"></script>
+        {{form}}
+        {% csrf_token %}
+        <img class="mb-4" src="https://www.tailorbrands.com/wp-content/uploads/2020/07/amazon-logo.jpg" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Inicio sesion</h1>
+        <!-- {{usuario.correo}} -->
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@usm.cl" name="correo">
+          <input type="hidden" value="{{usuario.correo}}" >
+          <label for="floatingInput">correo electronico</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="contra">
+          <label for="floatingPassword">contraseña</label>
+        </div>
 
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">correo electronico</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">contraseña</label>
-    </div>
 
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Recordarme
-      </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesion</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
-  </form>
-</main>
+        <!-- <a class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" href="{% url 'carrusel' %}">Iniciar sesion</a> -->
+        
+        <button type="submit" class="btn btn-primary" onclick="showData()">Iniciar sesion</button>
+        
+      </form>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Recordarme
+        </label>
+      </div>
+      <a href="{% url 'registro' %}">Registrarse</a>
+      <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+    </main>
 
 
     

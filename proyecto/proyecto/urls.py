@@ -19,12 +19,18 @@ from vidaSansana import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('crearT/',views.crearTaller,name='crear_taller'),
-    path('',views.inicio,name='inicio'),
+    path('inscribir/',views.inscribir_taller,name='inscribir'),
+    path('inicio',views.inicio,name='inicio'),
     path('publicacion/',views.crearPublicacion,name='crear_publicacion'),
     path('login/',views.loguear,name='login'),
-    path('carrusel/',views.carrusel,name='carrusel'),
-    path('inscribir/',views.inscribir,name='inscribir'),
+    path('',views.carrusel,name='carrusel'),
+    path('crearT/',views.crearTaller,name='crear_taller'),
     path('puntuar/',views.puntuar,name='puntuar'),
     path('previa/',views.previa,name='previa'),
+    path('talleres/{"usuario":usuario}',views.listaTalleres,name='talleres'),
+    path('registro/',views.registro,name='registro'),
+    path('perfil/',views.perfil,name='perfil'),
+    path('lp/',views.lpymes,name='lpymes'),
+    path('bl/',views.blg,name='badlog'),
+    path('crearTv2/',views.crearTv2,name='crearTv2'),
 ]
