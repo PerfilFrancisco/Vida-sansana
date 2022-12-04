@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Inscribir taller</title>
+    <!-- boostrap -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <!--  barra de navegacion -->
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+
+            <nav class="navbar ">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_UTFSM.png" alt="Logo" width="78" height="75" class="d-inline-block align-text-top">
+                    
+                    <a class="navbar-brand" href="{% url 'inicio' %}">Vida sansana</a>
+                  </a>
+                </div>
+              </nav>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+           
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Talleres</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Calendario</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pymes</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+<!--  contenedor -->
+<div class="container my-3 mx-1">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+        <!-- <h2>Taller</h2> -->
+
+<!--     <div class="mb-3 col-sm-12 col-md-8 col-lg-8 col-xl-8s">
+        <label for="formGroupExampleInput2" class="form-label">Descripcion</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Descripcion ">
+    </div> -->
+
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Taller</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder=":Tenis ">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Descripcion</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Descripcion ">
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+        <label for="formGroupExampleInput3" class="form-label">Profesor</label>
+        <input type="text" class="form-control" id="formGroupExampleInput3" placeholder=":Susana Oria ">
+      </div>
+      <div class="col-sm-1 col-md-1 col-lg-1 col-xl-1 mb-3">
+        <label for="formGroupExampleInput4" class="form-label">Cupo</label>
+        <input type="number" min="0" class="form-control" id="formGroupExampleInput4">
+
+      </div>
+
+      <!-- ubicacion -->
+      <div class="col-sm-8 col-md-4 col-lg-4 col-xl-4 mb-3">
+        <label class="text col-sm-8 col-md-4 col-lg-4 col-xl-4 mb-3" for="inputGroupSelect01">Ubicacion</label>
+        <select class="form-select " id="inputGroupSelect01">
+          <option selected>Selecione...</option>
+          <option value="1">Sede Viña del Mar</option>
+          <option value="2">Sede Concepcion</option>
+          <option value="3">Campus San Joaquin</option>
+        </select>
+      </div>
+
+      <!-- Dias -->
+      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 ">
+        <label for="formGroupExampleInput4" class="form-label">Dias</label>
+      </div> 
+
+      <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+        <label class="form-check-label" for="inlineCheckbox1">Lunes</label>
+      </div>
+      <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+        <label class="form-check-label" for="inlineCheckbox2">Martes</label>
+      </div>  
+      
+      <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+        <label class="form-check-label" for="inlineCheckbox2">Miercoles</label>
+      </div>
+
+      <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+        <label class="form-check-label" for="inlineCheckbox2">Jueves</label>
+      </div>
+
+      <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+        <label class="form-check-label" for="inlineCheckbox2">Viernes</label>
+      </div>
+
+      <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+        <label class="form-check-label" for="inlineCheckbox2">Sabado</label>
+      </div>
+
+      <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+        <label class="form-check-label" for="inlineCheckbox2">Domingo</label>
+      </div>
+
+      <!-- horario -->
+
+      <div class="col-sm-8 col-md-4 col-lg-4 col-xl-4 mb-3">
+        <label class="text col-sm-8 col-md-4 col-lg-4 col-xl-4 mb-3" for="inputGroupSelect01">Horario</label>
+        <select class="form-select " id="inputGroupSelect01">
+            <option selected>Hora inicio</option>
+            <option value="1">8:15</option>
+            <option value="2">8:50</option>
+            <option value="3">9:25</option>
+            <option value="4">10:10</option>
+            <option value="5">10:45</option>
+            <option value="6">11:30</option>
+            <option value="7">12:05</option>
+            <option value="8">12:50</option>
+            <option value="9">13:25</option>
+            <option value="10">14:30</option>
+            <option value="11">15:05</option>
+            <option value="12">15:40</option>
+            <option value="13">16:25</option>
+            <option value="14">17:00</option>
+            <option value="15">17:45</option>
+            <option value="16">18:20</option>
+            <option value="17">19:05</option>
+            <option value="18">19:40</option>
+            <option value="19">20:25</option>
+            <option value="20">21:00</option>
+            <option value="21">21:45</option>
+
+        </select>
+     </div>
+
+       <div class="col-sm-8 col-md-4 col-lg-4 col-xl-4 mb-3">
+        <select class="form-select " id="inputGroupSelect01">
+            <option selected>Hora fin</option>
+            <option value="1">8:50</option>
+            <option value="2">9:25</option>
+            <option value="3">10:10</option>
+            <option value="4">10:45</option>
+            <option value="5">11:30</option>
+            <option value="6">12:05</option>
+            <option value="7">12:50</option>
+            <option value="8">13:25</option>
+            <option value="9">14:30</option>
+            <option value="10">15:05</option>
+            <option value="11">15:40</option>
+            <option value="12">16:25</option>
+            <option value="13">17:00</option>
+            <option value="14">17:45</option>
+            <option value="15">18:20</option>
+            <option value="16">19:05</option>
+            <option value="17">19:40</option>
+            <option value="18">20:25</option>
+            <option value="19">21:00</option>
+            <option value="20">21:45</option>
+            <option value="21">22:20</option>
+        </select>
+        </div>
+
+      <!-- Guardar cambios -->
+      
+      <div class="mb-3">
+        <button type="button " class="btn btn-success">Guardar cambios</button>
+      </div>
+
+      </div>
+      

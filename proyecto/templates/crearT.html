@@ -1,168 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width= , initial-scale=1.0">
-    <title>interfaz</title>
-    <!-- boostrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-</head>
+<html>
+    <head>
+        <script src="/static/js/bootstrap.bundle.min.js"></script>
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    </head>
 
-<body>
-    <!--  barra de navegacion -->
-    <nav class="navbar navbar-expand-lg bg-primary">
-        <div class="container-fluid">
+    <style>
+        .navbar .bi{
+        position: absolute;
+        right: 50px;
+        color:white;
+        }
+        .mb-3{
+            min-height: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;  
+        }
+        .mb-3 .form-label{
+            min-height: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .mb-3 .form-control{
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;        
+        }
+        .mb-3 .form-select{
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;               
+        }
+        .col-sm .text{
+            float: left;
+        }
+        .col-sm .form-select{
+            position: relative;
+        }
+        .row .btn-success{
+            
+            float: right;
+        }
+        .navbar .container-fluid .navbar-brand{
+        color:white;
+      }
+      .navbar .collapse .navbar-nav .nav-item .nav-link{
+        color:white;
+      }
+    </style>
 
-            <nav class="navbar ">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="#">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_UTFSM.png" alt="Logo" width="110" height="105" class="d-inline-block align-text-top">
-                    
-                    <a class="navbar-brand" href="#">Vida sansana</a>
-                  </a>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-primary">
+          <div class="container-fluid">
+    
+              <nav class="navbar ">
+                  <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'inicio' %}">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_UTFSM.png" alt="Logo" width="78" height="75" class="d-inline-block align-text-top">
+                      
+                      <a class="navbar-brand" href="{% url 'carrusel' %}">Vida sansana</a>
+                    </a>
+                  </div>
+                </nav>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+            
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'talleres' %}">Talleres</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'inicio' %}">Calendario</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'lpymes' %}">Pymes</a>
+                </li>
+                <div>
+                  <i class="bi bi-person-circle">                
+                    <a class="bi bi-person-circle"href="{% url 'perfil' %}">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                      </svg>
+                    </a>
+                  </i>
                 </div>
-              </nav>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-           
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Talleres</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Calendario</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pymes</a>
-              </li>
-            </ul>
+                
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
-
-<!-- barra provi -->
-
-<!-- <nav class="navbar navbar-expand-lg bg-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Vida sansana</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-       
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Talleres</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Calendario</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pymes</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> -->
+        </nav>
+    
+    </header>
+    <body>
+        <section>
+            {{usuario}}
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <form method="POST" >
+                {{form}}
       
-<!--  contenedor -->
-    <div class="container my-3 mx-1">
-        <div class="row">
-            <div class="col-sm-12 col-md-1 col-lg-1 col-xl-1">
+                {% csrf_token %}
+                <h4 class="mb-3">Registro de Taller</h4>
+                <br/>
+                <div class="row l g-3"> 
+                    <div class="col-sm-6">
+                        <label for="firstName" class="form-label">Nombre de taller</label>
+                        <input type="text" class="form-control "  placeholder="Ejemplo: Tenis" name="nombre" >
+                    </div>
+        
+                    <div class="col-sm-6">
+                        <label for="tetx" class="form-label">Descripcion</label>
+                        <input type="text" class="form-control"  placeholder="Ejemplo: taller de tenis en el que..." name="descripcion" >
+                    </div>
 
-            </div>
+                    <div class="col-sm-6">
+                      <label for="tetx" class="form-label">Ubicacion</label>
+                      <input type="text" class="form-control"  placeholder="Ejemplo: Sala 108" name="ubicacion" >
+                  </div>                    
 
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Tenis ">
-              </div>
-              <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Descripcion</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Descripcion ">
-              </div>
-              <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
-                <label for="formGroupExampleInput3" class="form-label">Profesor</label>
-                <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Susana Oria ">
-              </div>
-              <div class="col-sm-1 col-md-1 col-lg-1 col-xl-1 mb-3">
-                <label for="formGroupExampleInput4" class="form-label">Cupo</label>
-                <input type="number" class="form-control" id="formGroupExampleInput4">
-              </div>
-              <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
-                <label class="text col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-2" for="inputGroupSelect01">Estado</label>
-                <select class="form-select " id="inputGroupSelect01">
-                  <option selected>Selecione...</option>
-                  <option value="1">Abierto</option>
-                  <option value="2">Cerrado</option>
-                </select>
-              </div>
+                    <div class="col-sm-6">
+                        <label for="text" class="form-label"  >Profesor </label>
+                        <input type="text" class="form-control" placeholder="Ejemplo: Javier Maldonado" name="profesor" >
+                    </div>
+        
+                    <div class="col-sm-6">
+                        <label for="text" class="form-label" >Cupo maximo</label>
+                        <input type="text" class="form-control"  placeholder="0" name="cupoM" >
+                    </div>    
 
+                    <div class="col-sm-6">
+                      <label for="text" class="form-label" >Cupo Actual</label>
+                      <input type="text" class="form-control"  placeholder="0" name="cupoA" >
+                  </div>                        
 
-<!-- horario -->
-            <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
-                <h2>Horario</h2>
-                <table class="table table-light table-striped">
-                    <thead>
-                        <tr>
-                            <th>Dias</th>
-                            <th>Hora inicio</th>
-                            <th>Hora fin</th>
-                        </tr>
+                    <div class="col-sm-6">
+                        <label class="form-label" for="inputGroupSelect01" >Sede</label>
+                        <select class="form-select " id="inputGroupSelect01" name="sede">
+                          <option selected >Selecione...</option>
+                          <option value="1" >Sede Viña del Mar</option>
+                          <option value="2" >Sede Concepcion</option>                  
+                          <option value="3">Campus San Joaquin</option>                  
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label" for="inputGroupSelect01" >Estado</label>
+                        <select class="form-select " id="inputGroupSelect01" name="estado">
+                          <option selected>Selecione...</option>
+                          <option value="1">Abierto</option>
+                          <option value="2">Cerrado</option>                  
+                        </select>
+                    </div>
+                    
+                    <h4 class="mb-3">Horario</h4>
+                
+                      <div class="col-sm-6">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" name="lunes">
+                        <label class="form-check-label" for="inlineCheckbox1">Lunes</label>
+                      </div>
 
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Lunes</td>
-                            <td> 00:00</td>
-                            <td> 00:00</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Martes</td>
-                            <td> 00:00</td>
-                            <td> 00:00</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Miercoles</td>
-                            <td> 00:00</td>
-                            <td> 00:00</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Jueves</td>
-                            <td> 00:00</td>
-                            <td> 00:00</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Vienes</td>
-                            <td> 00:00</td>
-                            <td> 00:00</td>
-                          
-                        </tr>
-                        <tr>
-                            <td>Sabado</td>
-                            <td> 00:00</td>
-                            <td> 00:00</td>
-                          
-                        </tr>
-                        <tr>
-                            <td>Domingo</td>
-                            <td> 00:00</td>
-                            <td> 00:00</td>
-                          
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <button type="button " class="btn btn-success">Guardar cambios</button>
-        </div>
-    </div>
-</body>
+                      <div class="col-sm-6">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="2" name="martes">
+                        <label class="form-check-label" for="inlineCheckbox2">Martes</label>
+                      </div>  
+                      
+                      <div class="col-sm-6">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="3" name="miercoles">
+                        <label class="form-check-label" for="inlineCheckbox2">Miercoles</label>
+                      </div>
+                
+                      <div class="col-sm-6">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="4" name="jueves">
+                        <label class="form-check-label" for="inlineCheckbox2">Jueves</label>
+                      </div>
+                
+                      <div class="col-sm-6">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="5" name="viernes">
+                        <label class="form-check-label" for="inlineCheckbox2">Viernes</label>
+                      </div>                
+                
+                    <div class="col-sm">
+                        <label class="text col-sm" for="inputGroupSelect01">Hora</label>
+                        <select class="form-select " id="inputGroupSelect01" name="hinicio">
+                            <option selected>Hora inicio</option>
+                            <option value="8:15">8:15</option>
+                            <option value="8:50">8:50</option>
+                            <option value="9:25">9:25</option>
+                            <option value="10:10">10:10</option>
+                            <option value="10:45">10:45</option>
+                            <option value="11:30">11:30</option>
+                            <option value="12:05">12:05</option>
+                            <option value="12:50">12:50</option>
+                            <option value="13:25">13:25</option>
+                            <option value="14:30">14:30</option>
+                            <option value="15:05">15:05</option>
+                            <option value="15:40">15:40</option>
+                            <option value="16:25">16:25</option>
+                            <option value="17:00">17:00</option>
+                            <option value="17:45">17:45</option>
+                            <option value="18:20">18:20</option>
+                            <option value="19:05">19:05</option>
+                            <option value="19:40">19:40</option>
+                            <option value="20:25">20:25</option>
+                            <option value="21:00">21:00</option>
+                            <option value="21:45">21:45</option>
+                
+                            </select>
+                    </div>
+                
+                    <div class="col-sm">
+                        <select class="form-select " id="inputGroupSelect01" name="hfin">
+                            <option selected >Hora fin</option>
+                            <option value="8:50">8:50</option>
+                            <option value="9:25">9:25</option>
+                            <option value="10:10">10:10</option>
+                            <option value="10:45">10:45</option>
+                            <option value="11:30">11:30</option>
+                            <option value="12:05">12:05</option>
+                            <option value="12:50">12:50</option>
+                            <option value="13:25">13:25</option>
+                            <option value="14:30">14:30</option>
+                            <option value="15:05">15:05</option>
+                            <option value="15:40">15:40</option>
+                            <option value="16:25">16:25</option>
+                            <option value="17:00">17:00</option>
+                            <option value="17:45">17:45</option>
+                            <option value="18:20">18:20</option>
+                            <option value="19:05">19:05</option>
+                            <option value="19:40">19:40</option>
+                            <option value="20:25">20:25</option>
+                            <option value="21:00">21:00</option>
+                            <option value="21:45">21:45</option>
+                            <option value="22:20">22:20</option>
+                        </select>
+                    </div>
+                
+                    <button type="submit" class="btn btn-success">Guardar cambios</button>
+                </div>
+
+              </form>
+        </section>
+    </body>
 </html>

@@ -82,15 +82,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'vida_sansana',
         'USER': 'root',
-        'PASSWORD': '12345',
-        'HOST': '10.4.41.3',  #10.4.41.3 / 192.168.2.102
+        'PASSWORD': 'manzana',
+        'HOST': 'localhost', 
         'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        } 
     }
 }
-
+#10.4.41.3
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -126,12 +123,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/templates/'
-MEDIA_URL = '/media/'
+STATIC_URL = 'static/'
+MEDIA_URL = 'media/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'templates')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
 # Default primary key field type
