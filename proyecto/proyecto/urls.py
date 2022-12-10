@@ -32,4 +32,5 @@ urlpatterns = [
     path('bl/',views.blg,name='badlog'),
     path('crearTv2/',views.crearTv2,name='crearTv2'),
     path('autores/',views.autores,name='autores'),
+    path('verT/',views.verTaller,name="vTaller"),
 ]

@@ -1,0 +1,129 @@
+{% extends "barradenav.html" %}
+
+{% block contenido %}
+<body>
+    <div class="py-5 text-center">
+        <h1 class="text-primary">
+            
+                Nombre taller
+            
+        </h1> <!--nombre del taller-->
+    </div>
+
+    <div class="container">
+
+        <div class="row ">
+        <div class="col-5"> <!--columna donde esta descripcion/profesor/buciacion-->
+            <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Descripción</strong></h5>
+                <p class="card-text">Con texto de apoyo a continuación como introducción natural a contenido adicional.Con texto de apoyo a continuación como introducción natural a contenido adicional.</p>
+            </div>
+            </div>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Profesor:</strong> nombre profesor
+                    </p>
+                </div>
+            </div>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Ubicacion:</strong> Sala generica nnn
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-2">
+        </div>
+        <div class="col-4">
+            <div>
+                <!--acordeon-->
+                <div class="accordion" id="accordionExample">
+                    <h2 style="color:#0d6efd">Horario</h2>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne"><!--identificador de colapso-->
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Lunes
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample"> <!--class="accordion-collapse collapse"-->
+                            <div class="accordion-body"> 10:30 - 11:35</div> <!--va la hora-->
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            Martes
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body"> 12:50 - 13:50 </div>
+                        </div>
+                    </div>      
+                </div>
+            </div>
+        </div>
+
+
+
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row justify-content-end">
+            
+            <div class="col-3 text-center align-self-center"> 
+                <span> <strong>Cupo: </strong> 
+                    <span>
+                        1/10
+                    </span>
+                </span>
+            </div>
+            
+            <div class="col-3 text-center align-self-center">
+                <span> <strong>Estado: </strong> 
+                    <span style="color: red">
+                        <strong>Cerrado</strong>
+                    </span>
+                </span>
+            </div>
+
+            
+            <div class="col-3 text-center align-self-center" >
+                    <button type="button " class="btn btn-primary">Inscribirme</button>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

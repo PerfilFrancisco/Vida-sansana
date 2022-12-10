@@ -13,13 +13,10 @@ from django.contrib import auth
 def inicio(request):
     #aglkjklug
     # correo = request.session['usuarioCorreo']
-    hitos = Hito.objects.filter()
+    hitos = Hito.objects.all()    
+    hitosede = HitoSede.objects.all()
+    #print(hitosede[0].hito.hito_id)
     
-    for temporal in hitos:
-        if temporal.hito_docencia == "":
-            pass
-        else:
-            print(temporal.hito_docencia)
     if request.method == "POST":   
         try:
             usuario = Usuario.objects.get(usu_correo=request.POST["correo"],usu_contrasena=request.POST["contraseña"])
@@ -29,7 +26,7 @@ def inicio(request):
         except ObjectDoesNotExist:
             return render(request,'login-fail.html')
         
-        return render(request,'inicio.html',{'usuario':usuario,'hitos':hitos})
+        return render(request,'inicio.html',{'usuario':usuario,'hitos':hitos,'sede':sede})
 
     else:
         if 'usuarioCorreo' not in request.session:
@@ -97,7 +94,6 @@ def crearTv2(request):
         correo = request.session['usuarioCorreo']
         usuario = Usuario.objects.get(usu_correo=correo)
         tusuario = TipoUsuario.objects.get(tipo_usu_id=2)
-
         if request.method == "GET" and usuario.tipo_usu == tusuario:
             return render(request,'crearT.html',{'usuario':usuario})
 
@@ -156,6 +152,14 @@ def inscribir_taller(request):
             return render(request,'inscribir_taller.html',{'usuario':Uscorreo})
     return render(request,'inscribir_taller.html') 
 
+def verTaller(request):
+    if "usuarioCorreo" in request.session:
+        correo = request.session['usuarioCorreo']
+        Uscorreo = Usuario.objects.get(usu_correo=correo)
+        if correo == Uscorreo.usu_correo:
+            
+            return render(request,'ver_taller.html',{'usuario':Uscorreo})
+    return render(request,'ver_taller.html')
 
 ############################### seccion Pymes ######################
  
