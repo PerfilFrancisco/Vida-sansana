@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -74,28 +75,28 @@
   <body class="text-center">
     
     <main class="form-signin w-100 m-auto">
-      <form method="post" action="{% url 'carrusel' %}">
+      <form method="post" action="{% url 'inicio' %}">
         <script src="/static/js/login.js"></script>
         <script src="/static/js/datosUsuario.js"></script>
         {{form}}
         {% csrf_token %}
-        <img class="mb-4" src="https://www.tailorbrands.com/wp-content/uploads/2020/07/amazon-logo.jpg" alt="" width="72" height="57">
+        <img class="mb-4" src="/static/media/logo.svg" alt="" width="150" height="150">
         <h1 class="h3 mb-3 fw-normal">Inicio sesion</h1>
-        <!-- {{usuario.correo}} -->
+        <!-- {{usuario.correo}} --> 
         <div class="form-floating">
           <input type="email" class="form-control" id="floatingInput" placeholder="name@usm.cl" name="correo">
-          <input type="hidden" value="{{usuario.correo}}" >
+          <!-- <input type="hidden" value="{{usuario.correo}}" > -->
           <label for="floatingInput">correo electronico</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="contra">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="contraseña">
           <label for="floatingPassword">contraseña</label>
         </div>
 
 
-        <!-- <a class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" href="{% url 'carrusel' %}">Iniciar sesion</a> -->
+        <!-- <a class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" href="{% url 'inicio' %}">Iniciar sesion</a> -->
         
-        <button type="submit" class="btn btn-primary" onclick="showData()">Iniciar sesion</button>
+        <button type="submit" class="btn btn-primary" >Iniciar sesion</button>
         
       </form>
       <div class="checkbox mb-3">
@@ -104,6 +105,7 @@
         </label>
       </div>
       <a href="{% url 'registro' %}">Registrarse</a>
+      <a href="{% url 'inicio' %}">Volver</a>
       <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
     </main>
 

@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -74,10 +75,72 @@
       .navbar .collapse .navbar-nav .nav-item .nav-link{
         color:white;
       }
-      .navbar .bi{
+      .navbar .container-fluid .collapse .navbar-nav .nav-item .etiqueta{
         position: absolute;
-        right: 50px;
+        right: 100px; 
+        top: 48px;
         color:white;
+      }
+      .navbar .bi{
+          position: absolute;
+          right: 50px;
+          color:white;
+      }
+
+      /* cosas del POP UP */
+      .py-5 .row .col-lg-6 .pop {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        
+      }
+
+      .py-5 .row .col-lg-6 .pop .popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -80px;
+        
+      }
+
+      /* Popup arrow */
+      .py-5 .row .col-lg-6 .pop .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+      }
+
+      /* Toggle this class - hide and show the popup */
+      .py-5 .row .col-lg-6 .pop .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s;
+      }
+      @-webkit-keyframes fadeIn {
+        from {opacity: 0;} 
+        to {opacity: 1;}
+      }
+
+      @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity:1 ;}
       }
     </style>
 
@@ -88,9 +151,9 @@
         <nav class="navbar ">
             <div class="container-fluid">
               <a class="navbar-brand" href="{% url 'inicio' %}">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_UTFSM.png" alt="Logo" width="78" height="75" class="d-inline-block align-text-top">
+                <img src="/static/media/logo.svg" alt="Logo" width="78" height="75" class="d-inline-block align-text-top">
                 
-                <a class="navbar-brand" href="{% url 'carrusel' %}">Vida sansana</a>
+                <a class="navbar-brand" href="{% url 'inicio' %}">Vida sansana</a>
               </a>
             </div>
           </nav>
@@ -99,7 +162,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-      
+       
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'talleres' %}">Talleres</a>
@@ -110,16 +173,24 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'lpymes' %}">Pymes</a>
           </li>
-          <div>
-            <i class="bi bi-person-circle">                
-              <a class="bi bi-person-circle"href="{% url 'perfil' %}">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg>
-              </a>
-            </i>
-          </div>
+          {% if usuario.usu_nombre is None %}
+          <li class="nav-item" >              
+            <a class="etiqueta" href="{% url 'login' %}" >Iniciar sesion</a>
+          </li>
+          {% else %}
+            <li class="nav-item">
+              <label class="etiqueta">{{ usuario.usu_nombre}} </label>
+              <i class="bi bi-person-circle">                
+                <a class="bi bi-person-circle"href="{% url 'perfil' %}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                  </svg>
+                </a>
+              </i>
+            </li>
+            
+          {% endif %}
           
         </ul>
       </div>
@@ -132,14 +203,22 @@
     
 
 <main>
-  <script src="/static/js/datosUsuario.js"></script>
+  
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light" >Zona de Talleres</h1>
-        <p class="lead text-muted">Bienvenido {{ user.username }} a la zona de talleres</p>
+        <p class="lead text-muted">Bienvenid@ {{ usuario.usu_nombre }} a la zona de talleres</p>
         <p>          
-          <a href="{% url 'crearTv2' %}" class="btn btn-primary my-2" name="ingresoCT">Quieres crear un taller?</a>          
+          {% if usuario.tipo_usu.tipo_usu_id is 2 %}
+            
+            <a href="{% url 'crearTv2' %}" class="btn btn-primary my-2" name="ingresoCT">¿Quieres crear un taller?</a>          
+          {% else %}
+            
+            <a class="pop btn btn-primary my-2" onclick="myFunction()"  name="ingresoCT">Quieres crear un taller?
+              <span class="popuptext" id="myPopup">Necesitas ser administrador</span>
+            </a>          
+          {% endif %}
         </p>
       </div>
     </div>
@@ -147,14 +226,14 @@
 
   <div class="album py-5 bg-light">
     <div class="container">
-
+      {%for taller in talleres%}
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Taller 1</text></svg>
 
             <div class="card-body">
-              <p class="card-text">Informacion taller 1</p>
+              <p class="card-text">{{ taller.descripcion }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
@@ -198,7 +277,7 @@
           </div>
         </div>
 
-        <div class="col">
+        <!-- <div class="col">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
@@ -294,8 +373,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>  -->
       </div>
+      {% endfor %}
     </div>
   </div>
 
@@ -311,7 +391,7 @@
 
 
     <script src="/static/js/bootstrap.bundle.min.js"></script>
-
+    <script src="/static/js/login.js"></script>
       
   </body>
   

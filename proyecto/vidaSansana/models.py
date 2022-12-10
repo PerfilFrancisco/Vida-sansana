@@ -249,9 +249,9 @@ class TipoUsuario(models.Model):
     class Meta:
         managed = False
         db_table = 'tipo_usuario'
+    # def __str__(self):
+    #     return self.tu_nombre
 
-    def __str__(self):
-        return self.tu_nombre
 
 class Usuario(models.Model):
     usu_rut = models.CharField(primary_key=True, max_length=14)
@@ -269,6 +269,7 @@ class Usuario(models.Model):
 
     def __str__(self):
         return self.usu_rut
+
 
 class UsuarioPubl(models.Model):
     usu_rut = models.OneToOneField(Usuario, models.DO_NOTHING, db_column='usu_rut', primary_key=True)

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>filtrar hito</title>
+    <!-- boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+ <!--  barra de navegacion -->
+ <nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container-fluid">
+
+        <nav class="navbar ">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_UTFSM.png" alt="Logo" width="78" height="75" class="d-inline-block align-text-top">
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+                
+                <a class="navbar-brand" href="#">Vida sansana</a>
+              </a>
+            </div>
+          </nav>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+       
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Talleres</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Calendario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pymes</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- filtro -->
+
+<div class="container text-center">
+    <div class="row align-items-start">
+      <div class="col">
+
+        <div class="container my-3 ">
+            <div class="row">
+              <div class="position-sticky" style="top: 2rem;">
+                <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px; background-color: white;">
+                  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href=""/></svg>
+                    <span class="fs-4">Filtrar Hito Academico</span>
+                  </a>
+                  <hr>
+                  <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link link-dark">
+                            <div class="col-sm-16 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                <label for="formGroupExampleInput" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder=":Premiacion ">
+                              </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            <div class="mb-3 -sm-16 col-md-12 col-lg-12 col-xl-12">
+                                <label for="formGroupExampleInput" class="form-label">Fecha</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder=":dd/mm/aa ">
+                              </div>
+                        </a>
+                    </li>
+                    <li>
+                      <a href="#" class="nav-link link-dark">
+                        <div class="col-sm-16 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label class="text col-sm-16 col-md-8 col-lg-8 col-xl-8 mb-3" for="inputGroupSelect01">Ubicacion</label>
+                            <select class="form-select " id="inputGroupSelect01">
+                              <option selected>Selecione...</option>
+                              <option value="1">Sede Viña del Mar</option>
+                              <option value="2">Sede Concepcion</option>
+                              <option value="3">Campus San Joaquin</option>
+                            </select>
+                          </div>
+                      </a>
+                    </li>
+                    
+                   
+                  </ul>
+                  <hr>
+                 
+                </div>
+              </div>
+              </div>                                  
+            </div>
+        </div>
+
+      <div class="col">
+            <div class="col -sm-12 col-md-8 col-lg-8 col-xl-8 my-5 ">
+              <h1 class="text-dark">
+            
+                Hito filtrado
+                  </h1>
+                 
+
+            <!--acordeon-->
+            <div class="accordion" id="accordionExample">
+
+              <div class="accordion-item my-3">
+                  <h2 class="accordion-header" id="headingOne"><!--identificador de colapso-->
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Nombre del hito
+                      </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample"> <!--class="accordion-collapse collapse"-->
+                    <div class="card">
+                      <div class="card-body"><p class="card-text">
+                            <strong>Nombre:</strong> nombre hito
+                          </p>
+                        
+                      <p class="card-text">
+                            <strong>Fecha:</strong> 22/12/2022
+                          </p>
+      
+                          <p class="card-text">
+                            <strong>Ubicacion:</strong> Sede Concepcion
+                          </p>
+
+                          <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title"><strong>Descripción</strong></h5>
+                                <p class="card-text">Inserte su descripcion aqui.</p>
+                            </div>
+                            </div>
+                        
+                  </div>
+                </div>
+                  </div>
+              </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container text-center">
+        <div class="row align-items-start">
+          <div class="col">
+            <div class="mb-3 mx-3">
+                <button type="button " class="btn btn-danger">Borrar filtros</button>
+                </div>
+          </div>
+
+          <div class="col">
+            <div class="mb-3 mx-3">
+             
+              </div>
+                              
+                </div>
+          
+          <div class="col">
+            <div class="mb-3 mx-3">
+                <button type="button " class="btn btn-primary">Aplicar filtros</button>
+                </div>
+          </div>
+        </div>
+
+          
+ 

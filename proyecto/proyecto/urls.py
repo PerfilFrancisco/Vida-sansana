@@ -20,11 +20,9 @@ from vidaSansana import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('inscribir/',views.inscribir_taller,name='inscribir'),
-    path('inicio',views.inicio,name='inicio'),
+    path('',views.inicio,name='inicio'),
     path('publicacion/',views.crearPublicacion,name='crear_publicacion'),
     path('login/',views.loguear,name='login'),
-    path('',views.carrusel,name='carrusel'),
-    #path('crearT/',views.crearTaller,name='crear_taller'),
     path('puntuar/',views.puntuar,name='puntuar'),
     path('previa/',views.previa,name='previa'),
     path('talleres/',views.listaTalleres,name='talleres'),
