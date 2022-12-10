@@ -86,11 +86,17 @@ class Puntuacion(models.Model):
     usu_rut = models.ForeignKey('Usuario', on_delete=models.CASCADE)
     publ_id = models.ForeignKey('PublicacionPy', on_delete=models.CASCADE)
 
+    class Meta:
+        db_table = 'puntuacion'
+
 class Comentario(models.Model):
     comentario = models.TextField(blank=True, null=True)
     comentario_id = models.AutoField(primary_key=True)
     usu_rut = models.ForeignKey('Usuario', on_delete=models.CASCADE)
     publ_id = models.ForeignKey('PublicacionPy', on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'comentario'
 
 class Dia(models.Model):
     dia_id = models.IntegerField(primary_key=True)
@@ -99,7 +105,8 @@ class Dia(models.Model):
     class Meta:
         managed = False
         db_table = 'dia'
-
+    def __str__(self):
+        return self.dia_nombre
 
 class DiaTaller(models.Model):
     dia = models.OneToOneField(Dia, models.DO_NOTHING, primary_key=True)
@@ -111,7 +118,8 @@ class DiaTaller(models.Model):
         managed = False
         db_table = 'dia_taller'
         unique_together = (('dia', 'tall'),)
-
+    def __str__(self):
+        return self.dia
 
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
@@ -203,6 +211,8 @@ class Sede(models.Model):
     class Meta:
         managed = False
         db_table = 'sede'
+    def __str__(self):
+        return self.sede_nombre
 
 
 class TallUsuario(models.Model):
@@ -219,7 +229,7 @@ class Taller(models.Model):
     tall_id = models.AutoField(primary_key=True)
     tall_nombre = models.CharField(max_length=45, blank=True, null=True)
     tall_profesor = models.CharField(max_length=45, blank=True, null=True)
-    tall_descripcion = models.CharField(max_length=45, blank=True, null=True)
+    tall_descripcion = models.TextField(blank=True, null=True)
     tall_cupo_act = models.IntegerField(blank=True, null=True)
     tall_cupo_max = models.IntegerField(blank=True, null=True)
     tall_estado = models.IntegerField(blank=True, null=True)
@@ -229,7 +239,8 @@ class Taller(models.Model):
     class Meta:
         managed = False
         db_table = 'taller'
-
+    def __str__(self):
+        return self.tall_nombre
 
 class TipoUsuario(models.Model):
     tipo_usu_id = models.AutoField(primary_key=True)
@@ -238,9 +249,9 @@ class TipoUsuario(models.Model):
     class Meta:
         managed = False
         db_table = 'tipo_usuario'
+    # def __str__(self):
+    #     return self.tu_nombre
 
-    def __str__(self):
-        return self.tu_nombre
 
 class Usuario(models.Model):
     usu_rut = models.CharField(primary_key=True, max_length=14)
@@ -258,6 +269,7 @@ class Usuario(models.Model):
 
     def __str__(self):
         return self.usu_rut
+
 
 class UsuarioPubl(models.Model):
     usu_rut = models.OneToOneField(Usuario, models.DO_NOTHING, db_column='usu_rut', primary_key=True)

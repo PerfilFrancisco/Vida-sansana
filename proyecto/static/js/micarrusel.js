@@ -1,3 +1,10 @@
-$('#carusel').on('slide.bs.carousel', function () {
-    interval: 2000
+$('.carousel').carousel( {
+    interval: 1000
   })
+$('.carousel').carousel('cycle');
+// function ocultar(id){
+//     document.getElementById(id).style.visibility = "hidden";
+//     console.log("entra");
+// }
+
+

@@ -1,101 +1,388 @@
-{% load  static %}
-<html>    
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    </head>
-    </style>
-    <body>
-      <style>
-        .nav-item{
-        color:white;
-      }
-      </style>
-      <header>
-        <nav class="navbar navbar-expand-lg bg-primary">
-          <div class="container-fluid">
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Inicio</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/blog-seguimiento.css" rel="stylesheet">
+    <link href="/static/css/estiloInicio.css" rel="stylesheet">
+
     
-              <nav class="navbar ">
-                  <div class="container-fluid">
-                    <a class="navbar-brand" href="{% url 'inicio' %}">
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_UTFSM.png" alt="Logo" width="78" height="75" class="d-inline-block align-text-top">
-                      
-                      <a class="navbar-brand" href="{% url 'carrusel' %}">Vida sansana</a>
-                    </a>
-                  </div>
-                </nav>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-            
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'talleres' %}">Talleres</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'inicio' %}">Calendario</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'lpymes' %}">Pymes</a>
-                </li>
-                <div>
-                  <i class="bi bi-person-circle">                
-                    <a class="bi bi-person-circle"href="{% url 'perfil' %}">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                      </svg>
-                    </a>
-                  </i>
-                </div>
+    <!-- Custom styles for this template -->
+    <link href="/static/css/carrusel.css" rel="stylesheet">
+    
+    
+  </head>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-primary">
+      <div class="container-fluid">
+
+        <nav class="navbar ">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'inicio' %}">
+                  <img src="/static/media/logo.svg" alt="Logo" width="78" height="75" class="d-inline-block align-text-top">
+                  
+                  <a class="navbar-brand" href="{% url 'inicio' %}">Vida sansana</a>
+                </a>
+              </div>
+        </nav>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'talleres' %}">Talleres</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#seccionAcademica">Calendario</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="{% url 'lpymes' %}">Pymes</a>
+            </li>
+            {% if usuario.usu_nombre is None %}
+              <li class="nav-item" >              
+                <a class="etiqueta" href="{% url 'login' %}" >Iniciar sesion</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <label class="etiqueta">{{ usuario.usu_nombre}} </label>
+                <i class="bi bi-person-circle">                
+                  <a class="bi bi-person-circle"href="{% url 'perfil' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg>
+                  </a>
+                </i>
+              </li>
+              
+            {% endif %}
+
+            <!-- <div>
+              <label class="etiqueta">{{ usuario.usu_nombre}} </label>
+              <p>
                 
-              </ul>
+              </p>
+              
+            </div> -->
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+  <body>
+    <!-- {{usuario.usu_nombre}} -->
+    
+    <script src="/static/js/datosUsuario.js"></script>
+    
+    <main>
+      <!-- {% include 'popUp.html' %} -->
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+            <div class="container">
+              <div class="carousel-caption text-start">
+                
+                <h1>Proyecto Web</h1>
+                <p>la zona inicial del proyecto </p>
+                
+              </div>
             </div>
           </div>
-        </nav>
-    
-      </header>
-    
-        <h1>
-            <a href="{% url 'crear_taller' %}">crear Taller</a>
-        </h1>
-        <h1>
-            <a href="{% url 'crear_publicacion' %}">crear publicacion</a>
-        </h1>
-        <h1>
-            <a href="{% url 'login' %}">login</a>
-        </h1>
-        <h1>
-            <a href="{% url 'carrusel' %}">carrusel</a>
-        </h1>
-        <h1>
-            <a href="{% url 'inscribir' %}">inscribir taller</a>
-        </h1>
-        <h1>
-            <a href="{% url 'puntuar' %}">puntuar</a>
-        </h1>
-        <h1>
-            <a href="{% url 'previa' %}">vista previa</a>
-        </h1>
-        <h1>
-            <a href="{% url 'talleres' %}">lista de talleres</a>
-        </h1>
-        <h1>
-          <a href="{% url 'previa' %}">vista previa</a>
-        </h1>
-        <h1>
-          <a href="{% url 'registro' %}">registro</a>
-        </h1>
-        <h1>
-          <a href="{% url 'perfil' %}">perfil</a>
-        </h1>
-        <h1>
-          <a href="{% url 'lpymes' %}">pymes</a>
-        </h1>
-        <h1>
-          <a href="{% url 'crearTv2' %}">crear taller v2</a>
-        </h1>
-    </body>
-    
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Creado por:</h1>
+                <p>Francisco Sanchez - Fabian Bustos - Luis Campos</p>
+                <!-- <p><a class="btn btn-lg btn-primary" href="{% url 'autores'%}">Indagar mas</a></p> -->
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+            <div class="container">
+              <div class="carousel-caption text-end">
+                <h1>Hecho con dedicacion</h1>
+                <p>Este proyecto fue hecho con bastante dedicacion por parte de sus integrantes</p>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- <div class="container" id="seccionAcademica">
+        <header class="blog-header lh-1 py-3">
+          <div class="row flex-nowrap justify-content-between align-items-center">
+            
+             <div class="col-4 d-flex justify-content-end align-items-center">
+              <a class="link-secondary" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+              </a>
+              
+            </div> 
+          </div>
+        </header>
+      
+         <div class="nav-scroller py-1 mb-2"> 
+          
+        </div>
+      </div> -->
+
+      <div class="p-4 p-md-5 mb-4 rounded text-bg-dark" id="seccionAcademica">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4 fst-italic">Estas adentrandote en la seccion de Eventos y Calendario Academico</h1>
+          <p class="lead my-3">Aqui esta toda la informacion relacionada al calendario academico de la Universidad Tecnica Federico Santa Maria y los eventos relacionados a ella</p>
+          <p class="lead mb-0"></p>
+          <!-- <a href="#" class="text-white fw-bold">Continue reading...</a> -->
+        </div>
+      </div>
+      
+      <div class="row mb-2" >
+        <div class="col-md-6">         
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >            
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary">Mundo Sansano</strong>
+              <h3 class="mb-0">Eventos</h3>
+              <div class="mb-1 text-muted">2022</div>
+              <p class="card-text">Enterate de los recientes eventos que se estan realizando en la comunidad Sansana</p>
+              <a href="#seccionAcademica" class="stretched-link" >Averiguar</a>              
+            </div>
+
+            <div class="carusel col">
+              <div id="carrusel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" >
+                  <div class="carousel-item active" >
+                    <img class="d-block w-10" width="80%" height="50%"src="/static/media/logosansano.svg" alt="First slide">
+                    
+                  </div>
+                  <div class="carousel-item " >
+                    <img class="d-block w-10" width="80%" height="50%" src="/static/media/logoajedrez.svg" alt="Second slide">
+                  </div>
+                  <div class="carousel-item ">
+                    <img class="d-block w-10" width="80%" height="50%"  src="/static/media/logoChicaSansano.svg" alt="Third slide">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+      </div>
+
+      <!-- <div class="position-sticky" style="top: 2rem;">
+        <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px; background-color: white;">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+            <span class="fs-4">Filtrar Hito Academico</span>
+          </a>
+          <hr>
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" aria-current="page">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link link-dark">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link link-dark">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                Orders
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link link-dark">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+                Products
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link link-dark">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+                Customers
+              </a>
+            </li>
+          </ul>
+          <hr>
+           <div class="dropdown">
+            <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+              <strong>mdo</strong>
+            </a>
+            <ul class="dropdown-menu text-small shadow">
+              <li><a class="dropdown-item" href="#">New project...</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+          </div> 
+        </div> 
+      </div>  -->
+        
+      <!-- </div> -->
+      
+      <div class="container text-center">
+        <div class="row align-items-start">
+          <div class="col">
+
+            <div class="container my-3 ">
+                <div class="row">
+                  <div class="position-sticky" style="top: 2rem;">
+                    <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px; background-color: white;">
+                      <a  class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                        <svg class="bi pe-none " width="40" height="40" ></svg>
+                        <span class="fs-4" style="left: -10px; position: relative;">Filtrar Hito Academico</span>
+                      </a>
+                      <hr>
+                      <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a class="nav-link link-dark">
+                                <div class="col-sm-16 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                    <label class="text col-sm-16 col-md-8 col-lg-8 col-xl-8 mb-3" for="inputGroupSelect01">Tipo de hito</label>
+                                    <select class="form-select " id="inputGroupSelect01">
+                                      <option selected>Selecione...</option>
+                                      <option value="1">Actividad</option>
+                                      <option value="2">Docencia</option>
+                                      <option value="3">Reglamentario</option>
+                                    </select>
+                                  </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a  class="nav-link link-dark">
+                                <div class="mb-3 -sm-16 col-md-12 col-lg-12 col-xl-12">
+                                    <label for="formGroupExampleInput" class="form-label">Fecha</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder=":dd/mm/aa ">
+                                  </div>
+                            </a>
+                        </li>
+                        <li>
+                          <a class="nav-link link-dark">
+                            <div class="col-sm-16 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                <label class="text col-sm-16 col-md-8 col-lg-8 col-xl-8 mb-3" for="inputGroupSelect01">Ubicacion</label>
+                                <select class="form-select " id="inputGroupSelect01">
+                                  <option selected>Selecione...</option>
+                                  <option value="1">Sede Viña del Mar</option>
+                                  <option value="2">Sede Concepcion</option>
+                                  <option value="3">Campus San Joaquin</option>
+                                </select>
+                            </div>
+                          </a>
+                        </li>
+                        <div class="container text-center">
+                          <div class="row align-items-start">
+                            <div class="col">
+                              <div class="mb-3 mx-3">
+                                  <button type="button " class="btn btn-danger">Borrar filtros</button>
+                                  </div>
+                            </div>
+                            
+                            <div class="col">
+                              <div class="mb-3 mx-3">
+                                  <button type="button " class="btn btn-primary">Aplicar filtros</button>
+                                  </div>
+                            </div>
+                          </div>
+                        </div>
+                      
+                      </ul>
+                      <hr>
+                    
+                    </div>
+                  </div>
+                  </div>                                  
+                </div>
+            </div>
+
+          <div class="col">
+            <div class="col -sm-12 col-md-8 col-lg-8 col-xl-8 my-5 ">
+              <h1 class="text-dark fs-1" style="font-family: calc(1.275rem + .3vw);">Hitos</h1>
+              <!--acordeon-->
+              {% for hito in hitos %}
+              <div class="accordion" id="accordionExample">
+
+                <div class="accordion-item my-3">
+                    <h2 class="accordion-header" id="headingOne"><!--identificador de colapso-->
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Descripcion 
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample"> <!--class="accordion-collapse collapse"-->
+                      <div class="card">
+                        <div class="card-body"><p class="card-text">
+                              <strong>Nombre:</strong> nombre hito
+                            </p>
+                          
+                        <p class="card-text">
+                              <strong>Fecha:</strong> 22/12/2022
+                            </p>
+        
+                            <p class="card-text">
+                              <strong>Ubicacion:</strong> Sede Concepcion
+                            </p>
+
+                            <div class="card text-center">
+                              <div class="card-body">
+                                  <h5 class="card-title"><strong>Descripción</strong></h5>
+                                  <p class="card-text">{{ hito.hito_actividad}}</p>
+                              </div>
+                              </div>
+                          
+                    </div>
+                  </div>
+                    </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+
+        
+        </div>
+      </div>
+    </main>
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/micarrusel.js"></script>
+  </body>
 </html>

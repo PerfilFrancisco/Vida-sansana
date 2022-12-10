@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,8 +10,6 @@
     <title>Registro</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/modals/">
-
-    
 
     
 
@@ -82,34 +81,46 @@
       <div class="modal-header p-5 pb-4 border-bottom-0">
         <!-- <h1 class="modal-title fs-5" >Modal title</h1> -->
         <h1 class="fw-bold mb-0 fs-2">Registrate gratis!</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <a  class="bi bi-x-lg" href="{% url 'login' %}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+          </svg>
+        </a>
       </div>
 
       <div class="modal-body p-5 pt-0">
-        <form class="">
+
+        <!-- seccion de post -->
+        <form method="post" action="{% url 'inicio'%}">
+          {{ form }}
+          {% csrf_token %}
           <div class="form-floating mb-3">
-            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
+            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" name="usuario">
+            <label for="floatingInput">Usuario</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" name="correo">
             <label for="floatingInput">Correo electronico</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" name="contra">
             <label for="floatingPassword">Contraseña</label>
           </div>
           
-          <a class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" href="{% url 'carrusel' %}">Registrarse</a>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" >Registrarse</button>
           
           <small class="text-muted">Al hacer clic en registrarse estas aceptando nuestros terminos y condiciones</small>
           <hr class="my-4">
           <h2 class="fs-5 fw-bold mb-3">O registrate de otra forma</h2>
-          <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3" type="submit">
+          <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3">
             <svg class="bi me-1" width="16" height="16"><use xlink:href="#twitter"/></svg>
             Registrarse con Twitter
           </button>
-          <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
+          <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3">
             <svg class="bi me-1" width="16" height="16"><use xlink:href="#facebook"/></svg>
             Registrarse con Facebook
           </button>
-          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3">
             <svg class="bi me-1" width="16" height="16"><use xlink:href="#github"/></svg>
             Registrarse con GitHub
           </button>
