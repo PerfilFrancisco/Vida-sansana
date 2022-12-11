@@ -178,7 +178,7 @@ def verTaller(request,id):
                 tu = TallUsuario.objects.filter(usu_rut=None,tall=None)
                 tu.usu_rut = Uscorreo.usu_rut
                 tu.tall = taller.tall_id
-                tu.save()
+                TallUsuario.objects.create(usu_rut=Uscorreo,tall=taller)
                 
                 #TallUsuario.objects.create(usu_rut=Uscorreo.usu_rut,tall=taller.tall_id)
                 return render(request,'ver_taller.html',{'usuario':Uscorreo,'taller':taller,'horarios':horario} )
