@@ -95,18 +95,44 @@
           {{ form }}
           {% csrf_token %}
           <div class="form-floating mb-3">
-            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" name="usuario">
+            <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="usuario" name="nombre">
             <label for="floatingInput">Usuario</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" name="correo">
+            <input type="text" class="form-control rounded-3" id="floatingPassword" placeholder="Password" name="rut">
+            <label for="floatingPassword">Rut (xx.xxx.xxx-x)</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@usm.cl" name="correo">
             <label for="floatingInput">Correo electronico</label>
           </div>
           <div class="form-floating mb-3">
             <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" name="contra">
             <label for="floatingPassword">Contraseña</label>
           </div>
-          
+          <div class="form-floating mb-3">
+            <select class="form-select " id="inputGroupSelect01" name="sede">
+              <option selected >Selecione...</option>
+              <option value="1" >Sede Viña del Mar</option>
+              <option value="5" >Sede Concepcion</option>                  
+              <option value="4">Campus San Joaquin</option>                  
+            </select>
+          </div>
+          <div class="form-floating mb-3">
+            <select class="form-select " id="inputGroupSelect01" name="carrera">
+              <option selected >Selecione...</option>
+              <option value="10">ing civil informatica</option>
+              <option value="9" >ing civil fisica</option>                  
+              <option value="8">ing civil electronica</option>                  
+              <option value="7" >ing civil ambiental</option>
+              <option value="6" >arquitecto</option>                  
+              <option value="5">tui idibujante proyectista</option>      
+              <option value="4" >ing comercial</option>
+              <option value="3" >ing informatica</option>                  
+              <option value="2">tui_mecatronica</option>                  
+              <option value="1" >tui informatica</option>
+            </select>
+          </div>
           <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" >Registrarse</button>
           
           <small class="text-muted">Al hacer clic en registrarse estas aceptando nuestros terminos y condiciones</small>

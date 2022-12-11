@@ -75,7 +75,7 @@
   <body class="text-center">
     
     <main class="form-signin w-100 m-auto">
-      <form method="post" action="{% url 'inicio' %}">
+      <form method="post" action="{% url 'inicio' %}" class="need-validation">
         <script src="/static/js/login.js"></script>
         <script src="/static/js/datosUsuario.js"></script>
         {{form}}
@@ -84,15 +84,21 @@
         <h1 class="h3 mb-3 fw-normal">Inicio sesion</h1>
         <!-- {{usuario.correo}} --> 
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@usm.cl" name="correo">
-          <!-- <input type="hidden" value="{{usuario.correo}}" > -->
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@usm.cl" name="correo" required>
+          <!-- <input type="hidden" value="iniciosesion" > -->
           <label for="floatingInput">correo electronico</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="contraseña">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="contraseña" required>
           <label for="floatingPassword">contraseña</label>
         </div>
-
+        {% if messages %}
+              <ul class="messages text-danger">
+              {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+              {% endfor %}
+              </ul>
+        {% endif %}
 
         <!-- <a class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" href="{% url 'inicio' %}">Iniciar sesion</a> -->
         

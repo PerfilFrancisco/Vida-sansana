@@ -1,0 +1,82 @@
+{% for hito in hitos %}
+    <!-- {%if forloop.counter == 1%} -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id=heading{{forloop.counter}}>
+            <!-- titulo boton -->
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse{{forloop.counter}} aria-expanded="true" aria-controls=collapse{{forloop.counter}}>
+                {{ hito.hito_actividad }}
+            </button>
+            </h2>
+            <!-- contenido boton -->
+            <div id=collapse{{forloop.counter}} class="accordion-collapse collapse show" aria-labelledby=heading{{forloop.counter}} 
+                data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+            <div class="card">
+                <div class="card-body"><p class="card-text">
+                    <strong>Tipo de hito:</strong> Academico
+                    </p>
+                
+                    <p class="card-text">
+                    <strong>Fecha:</strong> {{hito.hito_fecha_inicio}}
+                    </p>
+
+                    <p class="card-text">
+                    <strong>Ubicacion:</strong> Sede Concepcion
+                    </p>
+
+                    <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>Descripción</strong></h5>
+                        <p class="card-text">Inserte su descripcion aqui.</p>
+                    </div>
+                    </div>                                  
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+    
+    <!-- {%else%} -->
+        {% if hito.hito_docencia|length %}
+        <div class="accordion-item">
+
+            <h2 class="accordion-header" id=heading{{forloop.counter}}>
+            <!-- titulo boton -->
+                
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse{{forloop.counter}} aria-expanded="true" aria-controls=collapse{{forloop.counter}}>
+                    {{ hito.hito_docencia }}
+                </button>
+                
+            </h2>
+            <!-- contenido boton -->
+            <div id=collapse{{forloop.counter}} class="accordion-collapse collapse" aria-labelledby=heading{{forloop.counter}} 
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                <div class="card">
+                    <div class="card-body"><p class="card-text">
+                        <strong>Tipo de hito:</strong> Docencia
+                        </p>
+                    
+                    <p class="card-text">
+                        <strong>Fecha:</strong> {{ hito.hito_fecha_inicio }}
+                        </p>
+    
+                        <p class="card-text">
+                        <strong>Ubicacion:</strong> Sede Concepcion
+                        </p>
+
+                        <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>Descripción</strong></h5>
+                            <p class="card-text">Inserte su descripcion aqui.</p>
+                        </div>
+                        </div>
+                    
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        {% endif%}
+    {%endif%}
+{% endfor %}

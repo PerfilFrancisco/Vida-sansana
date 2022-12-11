@@ -31,6 +31,7 @@ urlpatterns = [
     path('lp/',views.lpymes,name='lpymes'),
     path('bl/',views.blg,name='badlog'),
     path('crearTv2/',views.crearTv2,name='crearTv2'),
-    path('autores/',views.autores,name='autores'),
     path('verT/',views.verTaller,name="vTaller"),
+    path('filtrarHito/',views.resultados,name='resultado'),
+    path('talleres/verT/<int:id>',views.verTaller,name='vTaller')
 ]

@@ -86,7 +86,7 @@
   <body>
     <!-- {{usuario.usu_nombre}} -->
     
-    <script src="/static/js/datosUsuario.js"></script>
+    
     
     <main>
       
@@ -117,7 +117,7 @@
               <div class="carousel-caption">
                 <h1>Creado por:</h1>
                 <p>Francisco Sanchez - Fabian Bustos - Luis Campos</p>
-                <!-- <p><a class="btn btn-lg btn-primary" href="{% url 'autores'%}">Indagar mas</a></p> -->
+                
               </div>
             </div>
           </div>
@@ -265,74 +265,92 @@
         <div class="row align-items-start">
           <div class="col">
 
-            <div class="container my-3 ">
-                <div class="row">
-                  <div class="position-sticky" style="top: 2rem;">
-                    <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px; background-color: white;">
-                      <a  class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                        <svg class="bi pe-none " width="40" height="40" ></svg>
-                        <span class="fs-4" style="left: -10px; position: relative;">Filtrar Hito Academico</span>
-                      </a>
-                      <hr>
-                      <ul class="nav nav-pills flex-column mb-auto">
-                        <li class="nav-item">
+
+
+
+
+            <!-- zona de filtro -->
+            <form method="post" action="filtrarHito/" id="formulario">
+              
+              {% csrf_token %}
+              <div class="container my-3 ">
+                  <div class="row">
+                    <div class="position-sticky" style="top: 2rem;">
+                      <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px; background-color: white;">
+                        <a  class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                          <svg class="bi pe-none " width="40" height="40" ></svg>
+                          <span class="fs-4" style="left: -10px; position: relative;">Filtrar Hito Academico</span>
+                        </a>
+                        <hr>
+                        <ul class="nav nav-pills flex-column mb-auto">
+                          <li class="nav-item">
+                              <a class="nav-link link-dark">
+                                  <div class="col-sm-16 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                      <label class="text col-sm-16 col-md-8 col-lg-8 col-xl-8 mb-3" for="inputGroupSelect01" >Tipo de hito</label>
+                                      <select class="form-select " id="inputGroupSelect01" name="tipohito">
+                                        <option selected>Selecione...</option>
+                                        <option value="Actividad">Actividad</option>
+                                        <option value="Docencia">Docencia</option>
+                                        <option value="Reglamentario">Reglamentario</option>
+                                      </select>
+                                    </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a  class="nav-link link-dark">
+                                  <div class="mb-3 -sm-16 col-md-12 col-lg-12 col-xl-12">
+                                      <label for="formGroupExampleInput" class="form-label">Fecha</label>
+                                      <input type="date" class="form-control" id="formGroupExampleInput" placeholder=":Oct. 20,2022 " name="fecha">
+                                    </div>
+                              </a>
+                          </li>
+                          <li>
                             <a class="nav-link link-dark">
-                                <div class="col-sm-16 col-md-12 col-lg-12 col-xl-12 mb-3">
-                                    <label class="text col-sm-16 col-md-8 col-lg-8 col-xl-8 mb-3" for="inputGroupSelect01">Tipo de hito</label>
-                                    <select class="form-select " id="inputGroupSelect01">
-                                      <option selected>Selecione...</option>
-                                      <option value="1">Actividad</option>
-                                      <option value="2">Docencia</option>
-                                      <option value="3">Reglamentario</option>
-                                    </select>
-                                  </div>
+                              
+                              <div class="col-sm-16 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                  <label class="text col-sm-16 col-md-8 col-lg-8 col-xl-8 mb-3" for="inputGroupSelect01">Ubicacion</label>
+                                  <select class="form-select " id="inputGroupSelect01" name="sede">
+                                    <option selected>Selecione...</option>
+                                    <option value="1">Sede Viña del Mar</option>
+                                    <option value="5">Sede Concepcion</option>
+                                    <option value="4">Campus San Joaquin</option>
+                                  </select>
+                              </div>
                             </a>
-                        </li>
-                        <li>
-                            <a  class="nav-link link-dark">
-                                <div class="mb-3 -sm-16 col-md-12 col-lg-12 col-xl-12">
-                                    <label for="formGroupExampleInput" class="form-label">Fecha</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder=":dd/mm/aa ">
-                                  </div>
-                            </a>
-                        </li>
-                        <li>
-                          <a class="nav-link link-dark">
-                            <div class="col-sm-16 col-md-12 col-lg-12 col-xl-12 mb-3">
-                                <label class="text col-sm-16 col-md-8 col-lg-8 col-xl-8 mb-3" for="inputGroupSelect01">Ubicacion</label>
-                                <select class="form-select " id="inputGroupSelect01">
-                                  <option selected>Selecione...</option>
-                                  <option value="1">Sede Viña del Mar</option>
-                                  <option value="2">Sede Concepcion</option>
-                                  <option value="3">Campus San Joaquin</option>
-                                </select>
-                            </div>
-                          </a>
-                        </li>
-                        <div class="container text-center">
-                          <div class="row align-items-start">
-                            <div class="col">
-                              <div class="mb-3 mx-3">
-                                  <button type="button " class="btn btn-danger">Borrar filtros</button>
-                                  </div>
-                            </div>
-                            
-                            <div class="col">
-                              <div class="mb-3 mx-3">
-                                  <button type="button " class="btn btn-primary">Aplicar filtros</button>
-                                  </div>
+                          </li>
+                          <div class="container text-center">
+                            <div class="row align-items-start">
+                              <div class="col">
+                                <div class="mb-3 mx-3">
+                                    <a href="{% url 'inicio' %}" type="button " class="btn btn-danger" name="borrar" >Borrar filtros</a>
+                                    </div>
+                              </div>
+                              
+                              <div class="col">
+                                <div class="mb-3 mx-3">
+                                    <button type="submit " class="btn btn-primary" name="aplicar">Aplicar filtros</button>
+                                    </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
+                        
+                        </ul>
+                        <hr>
                       
-                      </ul>
-                      <hr>
-                    
+                      </div>
                     </div>
-                  </div>
-                  </div>                                  
-                </div>
-            </div>
+                    </div>                                  
+              </div>
+            </form>
+            <!-- termino filtro -->
+
+
+
+
+
+
+
+          </div>
 
           <div class="col">
             <div class="col -sm-12 col-md-8 col-lg-8 col-xl-8 my-5 ">
@@ -341,90 +359,91 @@
               
               
               <div class="accordion" id="accordionExample">
-                {% for hito in hitos %}
-                    {%if forloop.counter == 1%}
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id=heading{{forloop.counter}}>
-                              <!-- titulo boton -->
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse{{forloop.counter}} aria-expanded="true" aria-controls=collapse{{forloop.counter}}>
-                                {{ hito.hito_actividad }}
-                            </button>
-                            </h2>
-                            <!-- contenido boton -->
-                            <div id=collapse{{forloop.counter}} class="accordion-collapse collapse show" aria-labelledby=heading{{forloop.counter}} 
-                                data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                              <div class="card">
-                                <div class="card-body"><p class="card-text">
-                                      <strong>Nombre:</strong> nombre hito
-                                    </p>
-                                  
-                                <p class="card-text">
-                                      <strong>Fecha:</strong> 22/12/2022
-                                    </p>
                 
-                                    <p class="card-text">
-                                      <strong>Ubicacion:</strong> Sede Concepcion
-                                    </p>
-          
-                                    <div class="card text-center">
-                                      <div class="card-body">
-                                          <h5 class="card-title"><strong>Descripción</strong></h5>
-                                          <p class="card-text">Inserte su descripcion aqui.</p>
-                                      </div>
-                                      </div>
-                                  
-                            </div>
-                              </div>
-                            </div>
-                            </div>
-                        </div>
-                    
-                    {%else%}
-                        {% if hito.hito_docencia|length %}
-                        <div class="accordion-item">
-
-                            <h2 class="accordion-header" id=heading{{forloop.counter}}>
-                              <!-- titulo boton -->
-                                
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse{{forloop.counter}} aria-expanded="true" aria-controls=collapse{{forloop.counter}}>
-                                    {{ hito.hito_docencia }}
-                                </button>
-                                
-                            </h2>
-                            <!-- contenido boton -->
-                            <div id=collapse{{forloop.counter}} class="accordion-collapse collapse" aria-labelledby=heading{{forloop.counter}} 
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                  <div class="card">
-                                    <div class="card-body"><p class="card-text">
-                                          <strong>Tipo de hito:</strong> Docencia
-                                        </p>
-                                      
-                                    <p class="card-text">
-                                          <strong>Fecha:</strong> {{ hito.hito_fecha_inicio }}
-                                        </p>
-                    
-                                        <p class="card-text">
-                                          <strong>Ubicacion:</strong> Sede Concepcion
-                                        </p>
-              
-                                        <div class="card text-center">
-                                          <div class="card-body">
-                                              <h5 class="card-title"><strong>Descripción</strong></h5>
-                                              <p class="card-text">Inserte su descripcion aqui.</p>
-                                          </div>
-                                          </div>
-                                      
-                                </div>
+                  {% for hito in hitos %}
+                      <!-- {%if forloop.counter == 1%} -->
+                          <div class="accordion-item">
+                              <h2 class="accordion-header" id=heading{{forloop.counter}}>
+                                <!-- titulo boton -->
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse{{forloop.counter}} aria-expanded="true" aria-controls=collapse{{forloop.counter}}>
+                                  {{ hito.hito_actividad }}
+                              </button>
+                              </h2>
+                              <!-- contenido boton -->
+                              <div id=collapse{{forloop.counter}} class="accordion-collapse collapse show" aria-labelledby=heading{{forloop.counter}} 
+                                  data-bs-parent="#accordionExample">
+                              <div class="accordion-body">
+                                <div class="card">
+                                  <div class="card-body"><p class="card-text">
+                                        <strong>Tipo de hito:</strong> Academico
+                                      </p>
+                                    
+                                      <p class="card-text">
+                                        <strong>Fecha:</strong> {{hito.hito_fecha_inicio}}
+                                      </p>
+                  
+                                      <p class="card-text">
+                                        <strong>Ubicacion:</strong> Sede Concepcion
+                                      </p>
+            
+                                      <div class="card text-center">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><strong>Descripción</strong></h5>
+                                            <p class="card-text">Inserte su descripcion aqui.</p>
+                                        </div>
+                                      </div>                                  
                                   </div>
                                 </div>
-                            </div>
-                        </div>
-                        {% endif%}
-                    {%endif%}
-                {% endfor %}
-            </div>
+                              </div>
+                              </div>
+                          </div>
+                      
+                      <!-- {%else%} -->
+                          {% if hito.hito_docencia|length %}
+                          <div class="accordion-item">
+
+                              <h2 class="accordion-header" id=heading{{forloop.counter}}>
+                                <!-- titulo boton -->
+                                  
+                                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse{{forloop.counter}} aria-expanded="true" aria-controls=collapse{{forloop.counter}}>
+                                      {{ hito.hito_docencia }}
+                                  </button>
+                                  
+                              </h2>
+                              <!-- contenido boton -->
+                              <div id=collapse{{forloop.counter}} class="accordion-collapse collapse" aria-labelledby=heading{{forloop.counter}} 
+                                  data-bs-parent="#accordionExample">
+                                  <div class="accordion-body">
+                                    <div class="card">
+                                      <div class="card-body"><p class="card-text">
+                                            <strong>Tipo de hito:</strong> Docencia
+                                          </p>
+                                        
+                                      <p class="card-text">
+                                            <strong>Fecha:</strong> {{ hito.hito_fecha_inicio }}
+                                          </p>
+                      
+                                          <p class="card-text">
+                                            <strong>Ubicacion:</strong> Sede Concepcion
+                                          </p>
+                
+                                          <div class="card text-center">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><strong>Descripción</strong></h5>
+                                                <p class="card-text">Inserte su descripcion aqui.</p>
+                                            </div>
+                                            </div>
+                                        
+                                  </div>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                          {% endif%}
+                      {%endif%}
+                  {% endfor %}
+               
+              </div>
               
             </div>
           </div>
@@ -434,7 +453,10 @@
         </div>
       </div>
     </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="/static/js/bootstrap.bundle.min.js"></script>
     <script src="/static/js/micarrusel.js"></script>
+    <script src="/static/js/resultados.js"></script>
+    <script src="/static/js/datosUsuario.js"></script>
   </body>
 </html>

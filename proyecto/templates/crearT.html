@@ -8,7 +8,9 @@
 
             
     <div class="container">
-            <form method="POST" >
+            <form method="POST">
+                {{ form }}
+                {% csrf_token %}
                 <h4 class="mb-4 mx-3">Registro de Taller</h4>
                 <br/>
 
@@ -67,12 +69,12 @@
                       <!--columna de ESTADO-->
                       <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 ">
 
-                        <label class="form-label">Estado</label>
-
-                        <div class="form-check form-switch">
-                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                          <label class="form-check-label" for="flexSwitchCheckDefault">Abierto</label><!--cambiar cuando se cambie-->
-                        </div>
+                        <label class="form-label" for="inputGroupSelect01" >Estado</label>
+                        <select class="form-select " id="inputGroupSelect01" name="estado">
+                          <option selected>Selecione...</option>
+                          <option value="1">Abierto</option>
+                          <option value="2">Cerrado</option>                  
+                        </select>
 
 
                       </div>
@@ -100,47 +102,48 @@
                                 <tbody>
                                     <tr class="">
                                         <td scope="row">Lunes</td> <!--dia-->
-                                        <td><input type="text" class="form-control"  placeholder="00:00" name="" ></td>
-                                        <td><input type="text" class="form-control"  placeholder="00:00" name="" ></td>
+                                        <td><input type="text" class="form-control"  placeholder="00:00" name="Hinicio1" ></td>
+                                        <td><input type="text" class="form-control"  placeholder="00:00" name="Hfin1" ></td>
                                         <td class="text-center">
-                                            <a name="" id="" class="btn btn-primary" href="#" role="button">Añadir</a> |
-                                            <a name="" id="" class="btn btn-outline-primary" href="#" role="button">Deshacer</a> 
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="1" name="lunes">
+                                            <label class="form-check-label" for="inlineCheckbox2">Incluir</label>
                                         </td>
                                     </tr>
                                     <tr class="">
                                         <td scope="row">Martes</td>
-                                        <td><input type="text" class="form-control"  placeholder="00:00" name="" ></td>
-                                        <td><input type="text" class="form-control"  placeholder="00:00" name="" ></td>
+                                        <td><input type="text" class="form-control"  placeholder="00:00" name="Hinicio2" ></td>
+                                        <td><input type="text" class="form-control"  placeholder="00:00" name="Hfin2" ></td>
                                         <td class="text-center">
-                                            <a name="" id="" class="btn btn-primary" href="#" role="button">Añadir</a> |
-                                            <a name="" id="" class="btn btn-outline-primary" href="#" role="button">Deshacer</a> 
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="2" name="martes">
+                                            <label class="form-check-label" for="inlineCheckbox2">Incluir</label>
                                         </td>
                                     </tr>
                                     <tr class="">
                                         <td scope="row">Miercoles</td>
-                                        <td><input type="text" class="form-control"  placeholder="00:00" name="" ></td>
-                                        <td><input type="text" class="form-control"  placeholder="00:00" name="" ></td>
+                                        <td><input type="text" class="form-control"  placeholder="00:00" name="Hinicio3" ></td>
+                                        <td><input type="text" class="form-control"  placeholder="00:00" name="Hfin3" ></td>
+                                        
                                         <td class="text-center">
-                                            <a name="" id="" class="btn btn-primary" href="#" role="button">Añadir</a> |
-                                            <a name="" id="" class="btn btn-outline-primary" href="#" role="button">Deshacer</a> 
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="3" name="miercoles">
+                                            <label class="form-check-label" for="inlineCheckbox2">Incluir</label>
                                         </td>
                                     </tr>
                                     <tr class="">
                                         <td scope="row">Jueves</td>
-                                        <td><input type="text" class="form-control"  placeholder="00:00" name="" ></td>
-                                        <td><input type="text" class="form-control"  placeholder="00:00" name="" ></td>
+                                        <td><input type="text" class="form-control"  placeholder="00:00" name="Hinicio4" ></td>
+                                        <td><input type="text" class="form-control"  placeholder="00:00" name="Hfin4" ></td>
                                         <td class="text-center">
-                                            <a name="" id="" class="btn btn-primary" href="#" role="button">Añadir</a> |
-                                            <a name="" id="" class="btn btn-outline-primary" href="#" role="button">Deshacer</a> 
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="4" name="jueves">
+                                            <label class="form-check-label" for="inlineCheckbox2">Incluir</label>
                                         </td>
                                     </tr>
                                     <tr class="">
                                         <td scope="row">Viernes</td>
-                                        <td><input type="text" class="form-control"  placeholder="00:00" name="" ></td>
-                                        <td><input type="text" class="form-control"  placeholder="00:00" name="" ></td>
+                                        <td><input type="text" class="form-control"  placeholder="00:00" name="Hinicio5" ></td>
+                                        <td><input type="text" class="form-control"  placeholder="00:00" name="Hfin5" ></td>
                                         <td class="text-center">
-                                            <a name="" id="" class="btn btn-primary" href="#" role="button">Añadir</a> |
-                                            <a name="" id="" class="btn btn-outline-primary" href="#" role="button">Deshacer</a> 
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="5" name="viernes">
+                                            <label class="form-check-label" for="inlineCheckbox2">Incluir</label>
                                         </td>
                                     </tr>
                                 </tbody>

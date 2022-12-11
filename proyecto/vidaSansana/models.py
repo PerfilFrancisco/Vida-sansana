@@ -219,6 +219,9 @@ class TallUsuario(models.Model):
     usu_rut = models.OneToOneField('Usuario', models.DO_NOTHING, db_column='usu_rut', primary_key=True)
     tall = models.ForeignKey('Taller', models.DO_NOTHING)
 
+    def save(self,*args,**kwargs):
+        super(TallUsuario, self).save(*args,**kwargs)
+
     class Meta:
         managed = False
         db_table = 'tall_usuario'
